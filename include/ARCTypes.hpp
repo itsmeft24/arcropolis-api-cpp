@@ -1,3 +1,8 @@
+template <typename T> struct ClangVector {
+	T* start;
+	T* end;
+	T* capacity;
+};
 struct Hash40 {
 	u32 crc;
 	u32 len;
@@ -217,11 +222,9 @@ struct LoadedArc {
 	FileInfoBucket* extra_buckets;
 	void* extra_entries;
 	DirectoryOffset* extra_folder_offsets;
-	std::vector<unsigned char> extra_entry_vector;
+	ClangVector<unsigned char> extra_entry_vector;
 	u32 version;
 	u32 extra_count;
 	void* loaded_file_system_search;
 	void* loaded_patch_section;
 };
-
-template <typename T> using CppVector = std::vector<T>;
