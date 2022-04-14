@@ -31,6 +31,7 @@ namespace ARCropolisAPI {
 		bool arcrop_get_decompressed_size(u64, u64*);
 		bool arcrop_get_loaded_arc(LoadedArc**);
 		void arcrop_register_event_callback(Event, EventCallbackFunction);
+		bool arcrop_is_file_loaded(u64);
 	}
 	
 	void RegisterCallback(Hash40 hash, u64 max_size, CallbackFunction clbk) {
@@ -93,5 +94,13 @@ namespace ARCropolisAPI {
 	
 	void RegisterEventCallback(Event e, EventCallbackFunction clbk) {
 		arcrop_register_event_callback(e, clbk);
+	}
+	
+	bool IsFileLoaded(u64 hash) {
+		return arcrop_is_file_loaded(hash);
+	}
+	
+	bool IsFileLoaded(Hash40 hash) {
+		return arcrop_is_file_loaded(hash.as_u64());
 	}
 }
