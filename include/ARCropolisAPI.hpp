@@ -32,6 +32,10 @@ namespace ARCropolisAPI {
 		bool arcrop_get_loaded_arc(LoadedArc**);
 		void arcrop_register_event_callback(Event, EventCallbackFunction);
 		bool arcrop_is_file_loaded(u64);
+		bool arcrop_is_mod_enabled(u64);
+		void arcrop_show_mod_manager();
+		void arcrop_show_config_editor();
+		void arcrop_show_main_menu();
 	}
 	
 	void RegisterCallback(Hash40 hash, u64 max_size, CallbackFunction clbk) {
@@ -102,5 +106,25 @@ namespace ARCropolisAPI {
 	
 	bool IsFileLoaded(Hash40 hash) {
 		return arcrop_is_file_loaded(hash.as_u64());
+	}
+	
+	bool IsModEnabled(u64 hash) {
+		return arcrop_is_mod_enabled(hash);
+	}
+	
+	bool IsModEnabled(Hash40 hash) {
+		return arcrop_is_mod_enabled(hash.as_u64());
+	}
+	
+	void ShowModManager() {
+		arcrop_show_mod_manager();
+	}
+
+	void ShowConfigEditor() {
+		arcrop_show_config_editor();
+	}
+
+	void ShowMainMenu() {
+		arcrop_show_main_menu();
 	}
 }
