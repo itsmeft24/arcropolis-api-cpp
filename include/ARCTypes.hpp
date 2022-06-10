@@ -213,7 +213,7 @@ struct LoadedArc {
 	FileInfoToFileData* file_info_to_datas;
 	FileData* file_datas;
 	void* unk_section;
-	StreamHeader stream_header;
+	StreamHeader* stream_header;
 	QuickDir* quick_dirs;
 	HashToIndex* stream_hash_to_entries;
 	StreamEntry* stream_entries;
